@@ -10,22 +10,32 @@
     padding: 0;
 }
 
+.app {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 body {
     font-family: montserrat, sans-serif;
     width: 100%;
     min-height: 100vh;
+
 }
 
 .card {
-    margin: 100px auto 0;
+    /* margin: 100px auto 0;
     width: 400px;
-    height: 600px;
+    height: 600px; */
+    margin: 10px 40px;
+    display: flex;
+    flex-wrap: wrap;
     perspective: 1000px;
 }
 
 .card__inner {
-    width: 100%;
-    height: 100%;
+    width: 200px;
+    height: 300px;
+    margin: 10px 40px;
     transition: transform 1s;
     transform-style: preserve-3d;
     cursor: pointer;
@@ -35,7 +45,6 @@ body {
 .card__inner.is-flipped {
     transform: rotateY(180deg);
 }
-
 
 .card__face {
     position: absolute;
@@ -55,9 +64,15 @@ body {
     justify-content: center;
 }
 
+.hide {
+    display: none;
+}
+
+
 .card__face--front h2 {
     color: #FFF;
     font-size: 32px;
+    text-align: center;
 }
 
 .card__face--back {
@@ -72,7 +87,7 @@ body {
 
 .card__header {
     position: relative;
-    padding: 30px 30px 40px;
+    /* padding: 30px 30px 40px; */
 }
 
 .card__header:after {
@@ -85,14 +100,13 @@ body {
     bottom: 0;
     background-image: linear-gradient(to bottom left, var(--primary) 10%, var(--secondary) 115%);
     z-index: -1;
-    border-radius: 0px 0px 50% 0px;
 }
 
 .pp {
     display: block;
-    width: 128px;
-    height: 128px;
-    margin: 0 auto 30px;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 10px;
     border-radius: 50%;
     background-color: #FFF;
     border: 5px solid #FFF;
@@ -101,7 +115,7 @@ body {
 
 .card__header h2 {
     color: #FFF;
-    font-size: 32px;
+    font-size: 16px;
     font-weight: 900;
     text-transform: uppercase;
     text-align: center;
@@ -113,16 +127,13 @@ body {
 
 .card__body h3 {
     color: var(--dark);
-    font-size: 24px;
+    font-size: 10px;
     font-weight: 600;
     margin-bottom: 15px;
 }
 
 .card__body p {
     color: var(--dark);
-    font-size: 18px;
+    font-size: 8px;
     line-height: 1.4;
 }
-
-© 2021 GitHub,
-Inc.
