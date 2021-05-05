@@ -3,6 +3,7 @@
     --secondary: #FE4880;
     --dark: #212121;
     --light: #F3F3F3;
+    --grey: #505050;
 }
 
 * {
@@ -16,10 +17,12 @@
 }
 
 body {
-    font-family: montserrat, sans-serif;
+    /* font-family: montserrat, sans-serif; */
+
+    background: #a01414;
+    background-size: 100%;
     width: 100%;
     min-height: 100vh;
-
 }
 
 .card {
@@ -41,6 +44,7 @@ body {
     cursor: pointer;
     position: relative;
 }
+
 
 .card__inner.is-flipped {
     transform: rotateY(180deg);
@@ -68,6 +72,9 @@ body {
     display: none;
 }
 
+.dead-style {
+    background-image: linear-gradient(to bottom right, var(--light), var(--grey));
+}
 
 .card__face--front h2 {
     color: #FFF;
@@ -122,18 +129,93 @@ body {
 }
 
 .card__body {
-    padding: 30px;
+    padding: 10px;
+
 }
 
-.card__body h3 {
+.card__body li {
     color: var(--dark);
-    font-size: 10px;
+    font-size: 14px;
+    list-style: none;
     font-weight: 600;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
+
 }
 
 .card__body p {
     color: var(--dark);
     font-size: 8px;
     line-height: 1.4;
+}
+
+.buttons {
+    display: block;
+    text-align: center;
+}
+
+.card__category {
+    text-decoration: none;
+    display: inline-block;
+    width: 140px;
+    height: 45px;
+    line-height: 45px;
+    border-radius: 45px;
+    margin: 10px 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 3px;
+    font-weight: 600;
+    color: #524f4e;
+    background: white;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, .1);
+    transition: .3s;
+}
+
+.card__category:hover {
+    background: #2EE59D;
+    box-shadow: 0 15px 20px rgba(46, 229, 157, .4);
+    color: white;
+    transform: translateY(-7px);
+}
+
+input {
+    position: relative;
+    display: inline-block;
+    font-size: 20px;
+    box-sizing: border-box;
+    transition: .5s;
+}
+
+input[type="text"] {
+    background: #FFf;
+    width: 340px;
+    height: 50px;
+    border: none;
+    outline: none;
+    padding: 0 25px;
+    border-radius: 25px 0 0 25px;
+}
+
+.searching-button {
+    position: relative;
+    border-radius: 0 25px 25px 0;
+    width: 150px;
+    height: 50px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: #ffc107;
+    color: #fff;
+}
+
+.searching-button:hover {
+    background: #ff5722;
+}
+
+.search {
+    display: block;
+    margin-top: 50px;
+    text-align: center;
 }

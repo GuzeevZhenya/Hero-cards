@@ -6,14 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Card</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;1,400&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <button class="card__category" data-filter='all'>All</button>
-    <button class="card__category" data-filter='alive'>Alive</button>
-    <button class="card__category" data-filter='dead'>Dead</button>
-    <button class="card__category" data-filter='male'>Male</button>
-    <button class="card__category" data-filter='female'>Female</button>
+    <div class="search">
+        <input type="text" class="card__input" placeholder="Type...">
+        <button class="searching-button" name="">Search</button>
+    </div>
+
+
+    <div class="buttons">
+        <button class="card__category button-all" data-filter='all'>All</button>
+        <button class="card__category button-alive" data-filter='alive'>Alive</button>
+        <button class="card__category button-dead" data-filter='dead'>Dead</button>
+        <button class="card__category button-male" data-filter='male'>Male</button>
+        <button class="card__category button-female" data-filter='female'>Female</button>
+    </div>
+
+
     <div class="card">
 
     </div>
