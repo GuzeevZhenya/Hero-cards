@@ -54,7 +54,7 @@
       "gender": "female",
       "birthDay": "1984",
       "deathDay": "2014",
-      "status": "alive",
+      "status": "deceased",
       "actors": "Scarlett Johansson",
       "photo": "dbimage/BlackWidow-EndgameProfile.jpg",
       "movies": [
@@ -298,7 +298,7 @@
       "deathDay": "2017",
       "status": "deceased",
       "actors": "Cate Blanchett",
-      "photo": "dbimage/Thor_Ragnarok_Textless_Character_Posters_01.jpg/",
+      "photo": "dbimage/Thor_Ragnarok_Textless_Character_Posters_01.jpg",
       "movies": [
         "Thor: Ragnarok"
       ]
