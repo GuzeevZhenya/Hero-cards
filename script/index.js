@@ -20,51 +20,55 @@ window.addEventListener('DOMContentLoaded', () => {
     const searchButton = document.querySelector('.searching-button');
     //Получаем данные из сервера
     function heroCards(status) {
+
         const db = 'https://heroescards-da99b-default-rtdb.europe-west1.firebasedatabase.app/db.json';
         fetch(db)
             .then(resp => resp.json())
             .then(data => heroCardsInfo(data, status))
+            
             .catch((e) => alert(e));
     }
     //Выводим данные на страницу
     function heroCardsInfo(dataInfo, status) {
+       
         app.textContent = '';
         for (let i = 0; i < dataInfo.length; i++) {
+            console.log(dataInfo[i].photo)
             if (status === 'all') {
+               
+                app.appendChild(createHeroCards(dataInfo[i]))
+            }
+            if (dataInfo[i].gender === status) {
                 app.appendChild(createHeroCards(dataInfo[i]))
             }
             if (dataInfo[i].name === status) {
                 app.appendChild(createHeroCards(dataInfo[i]))
             }
-            // if (dataInfo[i].gender === 'female') {
-            //     app.appendChild(createHeroCards(dataInfo[i]))
-            // }
-
-            // if (dataInfo[i].gender === 'male') {
-            //     app.appendChild(createHeroCards(dataInfo[i]))
-            // }
-
             if (dataInfo[i].status === status) {
+               
                 app.appendChild(createHeroCards(dataInfo[i]))
             }
         }
     }
 
 
-    cardInput.addEventListener('input',()=>{
+    cardInput.addEventListener('input', () => {
+     
         let searchValue = cardInput.value;
-    //    let newWord= searchValue.split(/\s+/).map(word => word[0].toUpperCase() + word.splice(1)).join(' ')
-    
-    //  newWord = searchValue.replace(/(^|\s)\S/g, function(a) {return a.toUpperCase()})
-    let newWord = searchValue.replace(/-|\s/g," ");
-    let result = newWord.replace(/(^|\s)\S/g, function(a) {return a.toUpperCase()})
-    // let result2 = result.trim().replace(/[^a-zA-Z0-9 -]/, "").replace(/\s/g, "-");
-         heroCards(result);
+        //    let newWord= searchValue.split(/\s+/).map(word => word[0].toUpperCase() + word.splice(1)).join(' ')
+        //  newWord = searchValue.replace(/(^|\s)\S/g, function(a) {return a.toUpperCase()})
+        let newWord = searchValue.replace(/-|\s/g, " ");
+        let result = newWord.replace(/(^|\s)\S/g, function (a) {
+            return a.toUpperCase()
+        })
+        // let result2 = result.trim().replace(/[^a-zA-Z0-9 -]/, "").replace(/\s/g, "-");
+
+        heroCards(result);
     })
 
     buttonMain.addEventListener('click', (e) => {
         let target = e.target;
-
+        cardInput.value = '';
         if (target.classList.contains('button-dead')) {
             heroCards('deceased');
         }
@@ -92,7 +96,7 @@ window.addEventListener('DOMContentLoaded', () => {
             <div class="card__face card__face--back">
                 <div class="card__content">
                     <div class="card__header ${dataInfo.status ==='deceased'?'dead-style':'alive-style'}">
-                        <img src="${dataInfo.photo}" alt="" class="pp" />
+                        <img src="${dataInfo.photo?dataInfo.photo:'no-image'}" alt="" class="pp" />
                         <h2>${dataInfo.realName?dataInfo.realName:dataInfo.name}</h2>
                     </div>
                      
@@ -109,7 +113,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
         </div>`
-
+       
         const cardBlock = document.createElement('div');
         cardBlock.className = `card__inner ${dataInfo.status}`;
         cardBlock.innerHTML = cardMarkup;
@@ -120,3 +124,24 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
+
+//Preloader
+
+document.body.onload = function () {
+    setTimeout(function () {
+        let preloader = document.getElementById('page-preloader');
+        if (!preloader.classList.contains('done')) {
+            preloader.classList.add('done')
+        }
+    }, 1000)
+}
+
+// let images = document.images,
+//     images_total_count = images.length,
+//     images_loader_count = 0;
+
+// for (let i = 0; i < images_total_count; i++) {
+//     image_clone = new Image();
+    
+// }

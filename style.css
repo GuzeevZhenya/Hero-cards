@@ -18,12 +18,16 @@
 
 body {
     /* font-family: montserrat, sans-serif; */
-
     background: #a01414;
     background-size: 100%;
     width: 100%;
     min-height: 100vh;
 }
+
+.no-image {
+    border-radius: 100%;
+}
+
 
 .card {
     /* margin: 100px auto 0;
@@ -153,7 +157,12 @@ body {
     text-align: center;
 }
 
+.header__logo {
+    background-color: inherit;
+}
+
 .card__category {
+    cursor: pointer;
     text-decoration: none;
     display: inline-block;
     width: 140px;
@@ -216,6 +225,66 @@ input[type="text"] {
 
 .search {
     display: block;
-    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+
+.preloader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    transition: 1s all;
+    opacity: 1;
+    visibility: visible;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('2.jpg') no-repeat;
+    background-size: 100%;
+}
+
+.loader {
+    width: 25px;
+    height: 25px;
+    border: 10px solid white;
+    border-radius: 50%;
+    border-top-color: red;
+
+    position: absolute;
+    left: 50%;
+    top: 65%;
+
+    transform: translate(-50%, -50%);
+    animation: 3s spin infinite linear;
+}
+
+.preloader-name {
+    color: black;
+    font-size: 50px;
+}
+
+.preloader.done {
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+@keyframes spin {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+
+
+header {
     text-align: center;
 }
